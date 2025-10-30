@@ -5,6 +5,7 @@ using namespace std;
 
 class temp {
 	string userName, email, password;
+	string searchName, searchPass, searchEamil;
 	fstream  file;
 public:
 	void login();
@@ -23,23 +24,23 @@ int main() {
 
 
 	switch (choice) {
-	case '1':
-		cin.ignore();
-		obj.login();
+		case '1':
+			cin.ignore();
+			obj.login();
 		break;
-	case '2':
-		cin.ignore();
-		obj.signup();
+		case '2':
+			cin.ignore();
+			obj.signup();
 		break;
-	case '3':
-		cin.ignore();
-		obj.forgetPassword();
+		case '3':
+			cin.ignore();
+			obj.forgetPassword();
 		break;
-	case '4':
-		return 0;
+		case '4':
+			return 0;
 		break;
-	default:
-		cout << "\n Invalid Selection ...!";
+		default:
+			cout << "\n Invalid Selection ...!";
 	}
 }
 
@@ -56,5 +57,18 @@ void temp::signup() {
 
 	file.open("login.txt", ios::out | ios::app);
 	file << userName << "*" << email << "*" << password << endl;
+}
+
+void temp::login() {
+
+	cout << "--------Login-----------"<<endl;
+
+	cout << "Enter Your Email ::" << endl;
+	getline(cin, searchName);
+
+	cout << "Enter Your Password ::" << endl;
+	getline(cin, searchPass);
+
+
 
 }
