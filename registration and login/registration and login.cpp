@@ -69,6 +69,27 @@ void temp::login() {
 	cout << "Enter Your Password ::" << endl;
 	getline(cin, searchPass);
 
+	file.open("login.txt", ios::in);
+	getline(file, userName, '*');
+	getline(file, email, '*');
+	getline(file, password, '\n');
 
-
+    // Fix: Add missing closing parenthesis for while condition in login() method
+    while (!file.eof()) {
+        if (userName == searchName) {
+            if (password == searchPass) {
+                cout << "\n Account Login Successfully...!" << endl;
+                cout << "\n User Name :: "<<userName << endl;
+                cout << "\n Email :: "<<email << endl;
+            }
+            else
+            {
+                cout << "Password is Incorrect...!";
+            }
+        }
+        getline(file, userName, '*');
+        getline(file, email, '*');
+        getline(file, password, '*');
+    }
+	file.close();
 }
