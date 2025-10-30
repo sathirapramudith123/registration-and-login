@@ -53,6 +53,7 @@ void temp::signup() {
     file.open("login.txt", ios::out | ios::app);
     file << userName << "*" << email << "*" << password << endl;
     file.close(); 
+
     cout << "\nAccount created successfully!" << endl;
 }
 
