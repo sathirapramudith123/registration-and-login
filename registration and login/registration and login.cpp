@@ -2,6 +2,16 @@
 #include<fstream>
 using namespace std;
 
+
+class temp {
+	string userName, email, password;
+	fstream  file;
+public:
+	void login();
+	void signup();
+	void forgetPassword();
+}obj;
+
 int main() {
 	char choice;
 	cout << "\n1 Login";
