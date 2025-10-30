@@ -89,7 +89,41 @@ void temp::login() {
         }
         getline(file, userName, '*');
         getline(file, email, '*');
-        getline(file, password, '*');
+        getline(file, password, '\n');
     }
 	file.close();
+}
+
+
+void temp::forgetPassword() {
+
+	cout << "\n Enter User Name :: ";
+	getline(cin, searchName);
+
+	cout << "\n Enter Email Address :: ";
+	getline(cin, searchEamil);
+
+	file.open("login.txt", ios::in);
+
+	getline(file, userName, '*');
+	getline(file, email, '*');
+	getline(file, password, '\n');
+
+	while (!file.eof()) {
+		if (userName == searchName) {
+			if (password == searchEamil) {
+				cout << "\n Account Found...!" << endl;
+				cout << "\n Your Password:: " << password << endl;
+			}else{
+				cout << "Not Found...!\n";
+			}
+		else {
+				cout << "\nNot Found...!\n";
+		}
+		getline(file, userName, '*');
+		getline(file, email, '*');
+		getline(file, password, '\n');
+	}
+	file.close();
+
 }
