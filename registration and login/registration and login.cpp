@@ -24,14 +24,37 @@ int main() {
 
 	switch (choice) {
 	case '1':
+		cin.ignore();
+		obj.login();
 		break;
 	case '2':
+		cin.ignore();
+		obj.signup();
 		break;
 	case '3':
+		cin.ignore();
+		obj.forgetPassword();
 		break;
 	case '4':
+		return 0;
 		break;
 	default:
 		cout << "\n Invalid Selection ...!";
 	}
+}
+
+void temp::signup() {
+
+	cout << "\n Enter User Name ::";
+	getline(cin, userName);
+
+	cout << "\n Enter Your Email ::";
+	getline(cin, email);
+
+	cout << "\n Enter Your Password ::";
+	getline(cin, password);
+
+	file.open("login.txt", ios::out | ios::app);
+	file << userName << "*" << email << "*" << password << endl;
+
 }
